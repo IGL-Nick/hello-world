@@ -1,6 +1,17 @@
 ##I want everything to start here from command line. This code should be pasted in a command prompt on any system to kick everything off. 
 
-#Im sure windows is going to make sure i enable scripts to be run
+#Windowos only for rinning scripts
+Set-ExecutionPolicy -Scope LocalMachine -ExecutionPolicy RemoteSigned -Force
+
+#may need to install packages
+#Install-Module PowerShellGet -Force -SkipPublisherCheck
+
+#If you have at least PowerShell 5 or PowerShell 4 with PackageManagement installed, you can use the package manager to install posh-git for you.
+Install-Module posh-git -Scope CurrentUser -Force
+
+#Newer beta version with PowerShell Core support
+#Install-Module posh-git -Scope CurrentUser -AllowPrerelease -Force 
+
 
 #>>>This downloads & installs Git
 
@@ -21,4 +32,15 @@ Start-Process -FilePath $installer -ArgumentList $install_args -Wait
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
 
 #They Told me to create/navigate to this directory. No clue why
+mkdir ~/COMP167
 cd ~/COMP167
+
+mkdir ./HelloWorld
+cd .\HelloWorld\
+
+#This will import the module. Run the second command to add git to all profiles
+Import-Module posh-git
+Add-PoshGitToProfile -AllHosts
+
+
+
