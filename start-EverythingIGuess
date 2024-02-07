@@ -38,6 +38,8 @@ cd ~/COMP167
 mkdir ./HelloWorld
 cd .\HelloWorld\
 
+git clone https://github.com/IGL-Nick/hello-world/blob/82782858868c684ef60277d5e622948d22368669/start-EverythingIGuess
+
 #This will import the module. Run the second command to add git to all profiles
 Import-Module posh-git
 Add-PoshGitToProfile -AllHosts
