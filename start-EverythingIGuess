@@ -44,5 +44,9 @@ git clone https://github.com/IGL-Nick/hello-world/blob/82782858868c684ef60277d5e
 Import-Module posh-git
 Add-PoshGitToProfile -AllHosts
 
+#>>>Clear Git Credentials
+git credential-manager erase
+
+
 
 
