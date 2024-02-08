@@ -1,0 +1,22 @@
+#Rearm Windows Server 2019
+cls
+$cim = New-CimSession
+#Get time remaining
+$minutes = (get-ciminstance -class SoftwareLicensingProduct -CimSession $cim).GracePeriodRemaining
+$rearm = (get-ciminstance -class SoftwareLicensingProduct -CimSession $cim).RemainingAppReArmCount
+
+$timespan = New-TimeSpan -Minutes $minutes
+
+$remaningDays = $timespan.days
+$remainingHours = $timespan.Hours
+$remaingingMinutes = $timespan.Minutes
+
+if($minutes -lt 420){
+    Write-Host "Windows license expriring in $remaningDays days. Rearming..."
+    #slmgr -rearm
+}
+
+Write-Host "You have $remaningDays days, $remainingHours hours, and $remaingingMinutes minutes untill license rearm."
+
+Write-Host "Rearms Remaining - $rearm"
+start-sleep 5 
