@@ -1,0 +1,6 @@
+#Using PowerShell
+#Open a session as Administrator and run a command like the following, after replacing <vm name> and <path>:
+
+Export-VM -Name \<vm name\> -Path \<path\>
+
+#Export-VM -Name "Windows 2019 Deployment Server" -Path "C:\Users\Nick\OneDrive\Home Lab\.iso\TODO - Windows Server 2019 Golden VM"
